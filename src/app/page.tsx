@@ -10,8 +10,8 @@ export default function Home() {
 
   const handlegetingdata = async () => {
     try {
-      const { data } = await axios.get("/api/fullname");
-      const response = await axios.get("/api/password");
+      const { data } = await axios.get("api/fullname");
+      const response = await axios.get("api/password");
 
       setFirstName(data.firstName || "");
       setLastName(data.lastName || "");
