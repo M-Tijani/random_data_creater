@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Copy } from "lucide-react";
 import { motion } from "framer-motion";
