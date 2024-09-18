@@ -1,28 +1,28 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Copy } from "lucide-react";
 import { motion } from "framer-motion";
+
 export default function Home() {
   const [password, setPassword] = useState("Password");
   const [firstName, setFirstName] = useState("First name");
   const [lastName, setLastName] = useState("Last name");
 
-  useEffect(() => {
-    const handlegetingdata = async () => {
-      try {
-        const { data } = await axios.get("api/fullname");
-        const response = await axios.get("api/password");
+  const handlegetingdata = async () => {
+    try {
+      const { data } = await axios.get("api/fullname");
+      const response = await axios.get("api/password");
 
-        setFirstName(data.firstName || "");
-        setLastName(data.lastName || "");
-        setPassword(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    handlegetingdata();
-  }, [password]);
+      setFirstName(data.firstName || "");
+      setLastName(data.lastName || "");
+      setPassword(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  handlegetingdata();
 
   const handlecopypassword = () => {
     navigator.clipboard.writeText(password);
